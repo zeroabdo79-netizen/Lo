@@ -1,114 +1,370 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FANDUEL SPORTSBOOK</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <title> FANDUEL SPORTSBOOK </title>
 
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 30px;
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .card h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f8;
+      color: #171717;
+      line-height: 1.7;
+    }
 
-        .card p {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            color: #e0e0e0;
-            line-height: 1.5;
-        }
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
 
-        /* Call To Action (CTA) Button */
-        .cta-button {
-            display: inline-block;
-            width: 100%;
-            padding: 15px 25px;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
-            border: none;
-            cursor: pointer;
-        }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 40px 0;
+    }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
-            background: linear-gradient(45deg, #ff4b2b, #ff416c);
-        }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
 
-        .features {
-            margin-top: 25px;
-            text-align: left;
-            font-size: 0.9rem;
-            color: #ccc;
-        }
+    .badge {
+      display: inline-block;
+      background: #eeeafe;
+      color: #534AB7;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-        .features li {
-            list-style: none;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
+    h1 {
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
 
-        .features li::before {
-            content: "✓";
-            color: #00ff88;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-    </style>
+    h1 span {
+      color: #534AB7;
+    }
+
+    .description {
+      color: #666;
+      font-size: 18px;
+      max-width: 520px;
+      margin-bottom: 25px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #534AB7;
+      color: white;
+      text-decoration: none;
+      padding: 16px 30px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .guarantee {
+      margin-top: 15px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .product-image {
+      text-align: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 45px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      color: #666;
+    }
+
+    /* CTA SECTION */
+    .final-cta {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .final-cta p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 50px 0;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 35px;
+      }
+
+      .description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .product-image {
+        order: -1;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .final-cta h2 {
+        font-size: 30px;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="card">
-        <h1>FANDUEL SPORTSBOOK</h1>
-        <p>Complete a quick offer below to verify that you are human and unlock your content immediately.</p>
-        
-        <!-- HNA DIL L-LINK DYAL OGADS -->
-        <a href="https://app.hawktrk.com/click?pid=2&offer_id=19603&sub2=u774774&sub5=s1SUBID1HERE" class="cta-button" target="_blank">
-            watch here
-        </a>
-<img src="60EE5A4C-377A-49DA-BF06-E9F6A525BBA6.jpeg" alt="Image" style="width:100%; border-radius:12px; margin-bottom:15px;">
-        <ul class="features">
-            <li>Fast & Free Verification</li>
-            <li>Instant Download / Access</li>
-            <li>100% Safe & Secure</li>
-        </ul>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="hero-text">
+
+          <div class="badge">
+            🔥 عرض خاص لفترة محدودة
+          </div>
+
+          <h1>
+            اكتشف المنتج الذي
+            <span>سيغير تجربتك</span>
+          </h1>
+
+          <p class="description">
+            منتج عملي، أنيق وعالي الجودة، مصمم باش يعطيك أفضل تجربة
+            ويخلي حياتك اليومية أسهل.
+          </p>
+
+          <div class="price">
+            200 درهم
+          </div>
+
+          <!-- 🔗 بدّل الرابط هنا -->
+          <a
+            href="https://example.com"
+            class="cta"
+            id="mainButton"
+            target="_blank"
+          >
+            🛒 اطلب الآن
+          </a>
+
+          <p class="guarantee">
+            ✓ توصيل سريع &nbsp; ✓ جودة مضمونة &nbsp; ✓ دفع عند الاستلام
+          </p>
+
+        </div>
+
+        <div class="product-image">
+
+          <!-- 🖼️ بدّل رابط الصورة هنا -->
+          <img
+            src="https://placehold.co/600x600"
+            alt="صورة المنتج"
+          >
+
+        </div>
+
+      </div>
+
     </div>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        علاش تختار هاد المنتج؟
+      </h2>
+
+      <div class="features-grid">
+
+        <div class="feature">
+          <div class="feature-icon">⭐</div>
+          <h3>جودة عالية</h3>
+          <p>
+            خامات ممتازة وتصميم عملي للاستخدام اليومي.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <h3>توصيل سريع</h3>
+          <p>
+            نوصلو الطلب ديالك بسرعة وبطريقة آمنة.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <h3>طلب آمن</h3>
+          <p>
+            معلوماتك محمية وتجربة شراء بسيطة وسهلة.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+
+    <div class="container">
+
+      <h2>
+        مستعد تجربو؟
+      </h2>
+
+      <p>
+        اضغط على الزر وخلي طلبك دابا.
+      </p>
+
+      <!-- نفس الرابط ديالك -->
+      <a
+        href="
+          https://appsave.site/cl/i/pqokmn?preview=1"
+        class="cta"
+        target="_blank"
+      >
+        🛒 اطلب الآن
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 جميع الحقوق محفوظة
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    // رسالة عند الضغط على زر الطلب
+    const buttons = document.querySelectorAll(".cta");
+
+    buttons.forEach(button => {
+
+      button.addEventListener("click", function() {
+
+        console.log("تم الضغط على زر الطلب");
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
