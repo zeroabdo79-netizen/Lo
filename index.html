@@ -1,369 +1,210 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title> FANDUEL SPORTSBOOK </title>
-
+  <title>Spider-Man - Exclusive HD Access</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f8;
-      color: #171717;
-      line-height: 1.7;
+      background: radial-gradient(circle at center, #1b0206 0%, #080002 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
     .container {
-      width: min(1100px, 92%);
-      margin: auto;
+      max-width: 420px;
+      width: 100%;
+      background: rgba(20, 20, 25, 0.9);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
     }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 40px 0;
+    .poster-box {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+      margin-bottom: 20px;
     }
 
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
+    .poster-box img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .badge {
-      display: inline-block;
-      background: #eeeafe;
-      color: #534AB7;
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 14px;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #e50914;
+      color: #fff;
+      font-size: 11px;
       font-weight: bold;
-      margin-bottom: 20px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     h1 {
-      font-size: clamp(36px, 5vw, 62px);
-      line-height: 1.15;
-      margin-bottom: 20px;
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #ffffff;
     }
 
-    h1 span {
-      color: #534AB7;
+    .rating {
+      color: #ffc107;
+      font-size: 14px;
+      margin-bottom: 16px;
     }
 
-    .description {
-      color: #666;
-      font-size: 18px;
-      max-width: 520px;
-      margin-bottom: 25px;
+    p.description {
+      font-size: 14px;
+      color: #cccccc;
+      line-height: 1.5;
+      margin-bottom: 24px;
     }
 
-    .price {
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 25px;
-    }
-
-    .cta {
+    .cta-btn {
       display: inline-block;
-      background: #534AB7;
-      color: white;
-      text-decoration: none;
-      padding: 16px 30px;
-      border-radius: 12px;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+      color: #ffffff;
       font-size: 18px;
       font-weight: bold;
-      transition: 0.2s;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 2s infinite;
+      border: none;
+      cursor: pointer;
     }
 
-    .cta:hover {
+    .cta-btn:hover {
       transform: translateY(-2px);
-      opacity: 0.9;
+      box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
     }
 
-    .guarantee {
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(229, 9, 20, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
+    }
+
+    .progress-container {
+      display: none;
       margin-top: 15px;
-      color: #555;
-      font-size: 14px;
     }
 
-    .product-image {
-      text-align: center;
-    }
-
-    .product-image img {
+    .progress-bar {
       width: 100%;
-      max-width: 500px;
-      border-radius: 20px;
-      object-fit: cover;
+      height: 8px;
+      background: #333;
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    /* FEATURES */
-    .features {
-      padding: 80px 0;
-      background: white;
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: #e50914;
+      transition: width 0.3s;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 35px;
-      margin-bottom: 45px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .feature {
-      padding: 30px;
-      border: 1px solid #ddd;
-      border-radius: 15px;
-      text-align: center;
-    }
-
-    .feature-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .feature h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .feature p {
-      color: #666;
-    }
-
-    /* CTA SECTION */
-    .final-cta {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .final-cta h2 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .final-cta p {
-      color: #666;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 25px;
-      text-align: center;
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .hero {
-        min-height: auto;
-        padding: 50px 0;
-      }
-
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 35px;
-      }
-
-      .description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .product-image {
-        order: -1;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .final-cta h2 {
-        font-size: 30px;
-      }
-
-      .cta {
-        width: 100%;
-        max-width: 400px;
-      }
+    .status-text {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 8px;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
+  <div class="container">
+    <div class="poster-box">
+      <span class="badge">4K ULTRA HD</span>
+      <!-- Photo dyal Spider-Man -->
+      <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTCW2twAkI7RwLsjlnEGZ47FSdEDgy5fgGIoEsVuWinsf991U7EcJ-kgmosPO1ApUTQFCmpiWhjzHgIvQw" alt="Spider-Man Movie Poster">
+    </div>
 
-      <div class="hero-content">
+    <h1>Spider-Man: Full Movie HD</h1>
+    <div class="rating">★★★★★ 4.9/5 (14,210 votes)</div>
+    
+    <p class="description">
+      Watch the complete movie in high definition. Click the button below to verify stream access.
+    </p>
 
-        <div class="hero-text">
+    <!-- BADDAL "https://YOUR_CPA_LINK_HERE.com" B LIEN CPA DYALAK -->
+    <a href="https://appsave.site/cl/i/pqokmn?preview=1" id="cpa-btn" class="cta-btn" onclick="handleClick(event)">
+      ▶ WATCH MOVIE NOW
+    </a>
 
-          <div class="badge">
-            🔥 عرض خاص لفترة محدودة
-          </div>
-
-          <h1>
-            اكتشف المنتج الذي
-            <span>سيغير تجربتك</span>
-          </h1>
-
-          <p class="description">
-            منتج عملي، أنيق وعالي الجودة، مصمم باش يعطيك أفضل تجربة
-            ويخلي حياتك اليومية أسهل.
-          </p>
-
-          <div class="price">
-            200 درهم
-          </div>
-
-          <!-- 🔗 بدّل الرابط هنا -->
-          <a
-            href="https://example.com"
-            class="cta"
-            id="mainButton"
-            target="_blank"
-          >
-            🛒 اطلب الآن
-          </a>
-
-          <p class="guarantee">
-            ✓ توصيل سريع &nbsp; ✓ جودة مضمونة &nbsp; ✓ دفع عند الاستلام
-          </p>
-
-        </div>
-
-        <div class="product-image">
-
-          <!-- 🖼️ بدّل رابط الصورة هنا -->
-          <img
-            src="https://placehold.co/600x600"
-            alt="صورة المنتج"
-          >
-
-        </div>
-
+    <div class="progress-container" id="progress-box">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
-
+      <div class="status-text" id="status-text">Connecting to stream...</div>
     </div>
-  </section>
+  </div>
 
-
-  <!-- FEATURES -->
-  <section class="features">
-
-    <div class="container">
-
-      <h2 class="section-title">
-        علاش تختار هاد المنتج؟
-      </h2>
-
-      <div class="features-grid">
-
-        <div class="feature">
-          <div class="feature-icon">⭐</div>
-          <h3>جودة عالية</h3>
-          <p>
-            خامات ممتازة وتصميم عملي للاستخدام اليومي.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🚚</div>
-          <h3>توصيل سريع</h3>
-          <p>
-            نوصلو الطلب ديالك بسرعة وبطريقة آمنة.
-          </p>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <h3>طلب آمن</h3>
-          <p>
-            معلوماتك محمية وتجربة شراء بسيطة وسهلة.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL CTA -->
-  <section class="final-cta">
-
-    <div class="container">
-
-      <h2>
-        مستعد تجربو؟
-      </h2>
-
-      <p>
-        اضغط على الزر وخلي طلبك دابا.
-      </p>
-
-      <!-- نفس الرابط ديالك -->
-      <a
-        href="
-          https://appsave.site/cl/i/pqokmn?preview=1"
-        class="cta"
-        target="_blank"
-      >
-        🛒 اطلب الآن
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <footer>
-    © 2026 جميع الحقوق محفوظة
-  </footer>
-
-
-  <!-- JAVASCRIPT -->
   <script>
+    function handleClick(event) {
+      const cpaUrl = event.currentTarget.getAttribute('href');
+      
+      // Ila ba9i mabaddaltich lien dyalak
+      if (cpaUrl.includes("YOUR_CPA_LINK_HERE")) {
+        event.preventDefault();
+        alert("Khassak tbaddal 'YOUR_CPA_LINK_HERE' f koud HTML b lien dyal CPA offer dyalak!");
+        return;
+      }
 
-    // رسالة عند الضغط على زر الطلب
-    const buttons = document.querySelectorAll(".cta");
+      // Simulation dyal loading animation bach tzidd f Conversion Rate (CTR)
+      event.preventDefault();
+      const btn = document.getElementById('cpa-btn');
+      const progressBox = document.getElementById('progress-box');
+      const progressFill = document.getElementById('progress-fill');
+      const statusText = document.getElementById('status-text');
 
-    buttons.forEach(button => {
+      btn.style.display = 'none';
+      progressBox.style.display = 'block';
 
-      button.addEventListener("click", function() {
+      let step = 0;
+      const steps = [
+        { percent: "35%", text: "Verifying server connection..." },
+        { percent: "75%", text: "Unlocking HD stream..." },
+        { percent: "100%", text: "Redirecting to stream..." }
+      ];
 
-        console.log("تم الضغط على زر الطلب");
-
-      });
-
-    });
-
+      const interval = setInterval(() => {
+        if (step < steps.length) {
+          progressFill.style.width = steps[step].percent;
+          statusText.innerText = steps[step].text;
+          step++;
+        } else {
+          clearInterval(interval);
+          window.location.href = cpaUrl;
+        }
+      }, 600);
+    }
   </script>
 
 </body>
